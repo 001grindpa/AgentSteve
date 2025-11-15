@@ -14,3 +14,12 @@ def index():
         return redirect("/landing")
     return render_template("index.html")
 
+@app.route("/landing", methods=["GET", "POST"])
+def landing():
+    if request.method == "POST":
+        session["enter"] = request.form.get("enter")
+        return redirect("/")
+    return render_template("landing.html")
+
+if __name__ == "__main__":
+    app.run(port=5000, debug=True, use_reloader=True, reloader_type="watchdog")
