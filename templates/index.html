@@ -1,20 +1,63 @@
 {% extends "base.html" %}
 
 {% block body %}
-    <header>
-        <div class="sideNote">Another Masterpiece</div>
-    </header>
-    <main>
-        <div class="hi">
-            <div class="cancel ready"><img src="{{ url_for('static', filename='images/x.png') }}" alt="cancel"></div>
+    <div class="loader">
+        <img src="{{ url_for('static', filename='images/bot.gif') }}" alt="bot_gif">
+    </div>
+    <div class="index">
+        <header class="indexH">
             <div>
-                <div>
-                    <div>I'm Steve, your recipe buddy. I can turn your available ingredients into delicious meals from around the world, let's get to cooking when you're ready.</div>
-                    <button class="ready">Ready</button>
-                    <input id="cl" type="hidden" value="{{ x }}">
-                </div>
-                <img src="{{ url_for('static', filename='images/steve_hi.png') }}" alt="steve">
+                <div class="name">Agent Steve</div>
+                <div>Powered By: Sentient</div>
             </div>
-        </div>
-    </main>
+            <div class="sideNote">Another Masterpiece</div>
+        </header>
+        <main>
+            <div class="hi">
+                <div class="cancel ready"><img src="{{ url_for('static', filename='images/x.png') }}" alt="cancel"></div>
+                <div>
+                    <div>
+                        <div>I'm Steve, your recipe buddy. I can turn your available ingredients into delicious meals from around the world, let's get to cooking when you're ready.</div>
+                        <button class="ready">Ready</button>
+                        <input id="cl" type="hidden" value="{{ x }}">
+                    </div>
+                    <img src="{{ url_for('static', filename='images/steve_hi.png') }}" alt="steve">
+                </div>
+            </div>
+            <div class="slide">
+                <div>slide area for ads</div>
+            </div>
+            <div class="query2">
+                <div class="confirm">
+                    <div>Is this everything?</div>
+                    <div class="ingredients"><!--js will insert the clean ingredients here--></div>
+                    <form action="/query">
+                        <!--the input below will contain the final query sent to the llm for recipe retrieval-->
+                        <input type="hidden" name="fQuery" id="fQuery">
+                        <button>Yes</button><span><button>No</button></span>
+                    </form>
+                </div>
+            </div>
+            <div class="query">
+                <div class="main">
+                    <img src="{{ url_for('static', filename='images/steve_tray3.png') }}" alt="steve_img">
+                    <form id="cleanForm" action="/clean" method="post">
+                        <textarea name="q" id="query" placeholder="Enter ingredients here..."></textarea>
+                        <button type="submit">Enter</button>
+                    </form>
+                </div>
+            </div>
+            <div class="instruct">
+                <ul>
+                    <div>Instructions are simple:</div>
+                    <li>Make your ingredient description as precise as possible</li>
+                    <li>State the origin of your ingredient if neccessary</li>
+                </ul>
+            </div>
+        </main>
+        <footer>
+            <div>A project enginnered by Grindpa</div>
+            <div><a href="https://www.x.com/0xGrindpa"><img src="{{ url_for('static', filename='images/twitter_w.png') }}" alt="x.logo"></a><div>X/Twitter</div></div>
+        </footer>
+    </div>
 {% endblock %}

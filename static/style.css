@@ -12,6 +12,9 @@
     margin-right: 3px;
     background-image: linear-gradient(lightblue, white);
 }
+.index {
+    display: none;
+}
 
 .section-1 {
     margin: auto;
@@ -58,11 +61,11 @@ main {
     gap: 10px;
     align-items: center;
 }
-form {
+.section-3 + form {
     display: flex;
     justify-content: center;
 }
-form .btn {
+.section-3 + form .btn {
     text-align: center;
     margin-top: 15px;
     padding: 15px;
@@ -73,7 +76,7 @@ form .btn {
     border: none;
     cursor: pointer;
 }
-form .btn:hover {
+.section-3 + form .btn:hover {
     background-color: green;
 }
 footer {
@@ -95,6 +98,25 @@ footer img:hover {
     background-color: black;
 }
 /* index page css */
+.index {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+.indexH {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.indexH .name {
+    font-weight: bold;
+    font-size: larger;
+    color: blue;
+}
+.indexH .name + div {
+    font-size: small;
+    font-weight: bold;
+}
 .hi {
     background-color: lightblue;
     border-radius: 10px;
@@ -138,4 +160,119 @@ footer img:hover {
     border: none;
     border-radius: 10px;
     cursor: pointer;
+}
+.loader {
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-top: 300px;
+    padding-left: 50%;
+}
+.loader img {
+    width: 150px;
+    height: 150px;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.233);
+    border-radius: 50px;
+}
+.slide {
+    margin-bottom: 15px;
+}
+.main {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+#cleanForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+#cleanForm textarea {
+    resize: none;
+    width: 290px;
+    height: 100px;
+    padding: 5px;
+    background-color: lightgreen;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    line-height: 1.4;
+}
+#cleanForm button {
+    align-self: flex-end;
+    padding: 15px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border: none;
+    outline: none;
+    background-color: green;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+}
+#cleanForm button:hover {
+    background-color: rgb(0, 153, 0);
+}
+.query {
+    background-color: lightblue;
+    padding-top: 10px;
+    padding-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+.main img {
+    width: 200px;
+    height: 200px;
+    align-self: flex-start;
+}
+.query2 {
+    background-color: lightblue;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: none;
+}
+.query2 .confirm {
+    margin: auto;
+    text-align: center;
+    background-color: lightgreen;
+    width: fit-content;
+    padding: 25px;
+}
+.query2 .confirm button {
+    padding: 15px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border: none;
+    outline: none;
+    background-color: green;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.query2 .confirm span button {
+    background-color: lightcoral;
+    margin-left: 20px;
+}
+.query2 .confirm button:hover {
+    background-color: rgb(0, 161, 0);
+}
+.query2 .confirm span button:hover {
+    background-color: rgb(243, 106, 106);
+}
+.instruct {
+    width: fit-content;
+    margin: auto;
+    transform: translateX(-10%);
+}
+.ingredients {
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+.index footer {
+    margin-top: 220px;
 }
