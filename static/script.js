@@ -12,9 +12,36 @@ document.addEventListener('DOMContentLoaded', () => {
         const q2Cont = document.querySelector(".query2");
         const analyse = qCont.querySelector(".analyse");
         const q2Form = q2Cont.querySelector(".confirm form");
+        const q2FormInput = q2Cont.querySelector(".confirm #fQuery");
         const yesBtn = q2Cont.querySelector(".confirm form button");
         const noBtn = q2Cont.querySelector(".confirm span button");
         const backBtn = q2Cont.querySelector("#backBtn");
+        const recoCont = document.querySelector(".recoCont");
+        const reco = recoCont.querySelector(".reco");
+
+        recoCont.addEventListener("click", () => {
+            recoCont.style.display = "none";
+        });
+        reco.addEventListener("click", (e) => {
+            e.stopPropagation();
+        })
+
+        q2Form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            let form = new FormData(q2Form);
+            let fQuery = form.get("fQuery");
+            alert("Processing recommendations...")
+
+            let r = await fetch("/recommend", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({q: fQuery})
+            });
+            let d = await r.json();
+            console.log(d.msg);
+            reco.innerHTML = d.msg;
+            recoCont.style.display = "flex";
+        });
 
         const backs = [noBtn, backBtn];
 
@@ -40,9 +67,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify({q: query})
             });
             let data = await r.json();
-            console.log(data);
             const promise = JSON.stringify(data.msg);
             ingre.innerHTML = promise.replaceAll('"', '');
+            q2FormInput.value = ingre.textContent;
+            console.log(q2FormInput.value);
             const subs = ["invalid", "Invalid", "can't", "can not"]
             if (ingre.textContent === "no actual food ingredients in query" || subs.some(sub => ingre.textContent.includes(sub)) || ingre.textContent.length < 25) {
                 yesBtn.style.display = "none";

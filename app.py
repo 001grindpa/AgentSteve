@@ -41,11 +41,18 @@ def landing():
 @app.route("/clean", methods=["GET", "POST"])
 def clean():
     if request.method == "POST":
-        query = request.json["q"]
-        print(query)
-        cleaned = clean_query(query)
+        q = request.json["q"]
 
+        cleaned = clean_query(q)
         return jsonify({"msg": cleaned})
+        
+@app.route("/recommend", methods=["GET", "POST"])
+def recom():
+    if request.method == "POST":
+        q = request.json["q"]
+
+        recommendation = recommend(q)
+        return jsonify({"msg": recommendation})
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True, use_reloader=True, reloader_type="watchdog")
