@@ -17,12 +17,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const noBtn = q2Cont.querySelector(".confirm span button");
         const backBtn = q2Cont.querySelector("#backBtn");
         const recoCont = document.querySelector(".recoCont");
+        const recoDiv = recoCont.querySelector(".recoDiv");
         const reco = recoCont.querySelector(".reco");
+        const finalForm1 = recoCont.querySelector(".recoDiv #finalForm1");
+        const finalForm2 = recoCont.querySelector(".recoDiv #finalForm2");
 
         recoCont.addEventListener("click", () => {
             recoCont.style.display = "none";
         });
-        reco.addEventListener("click", (e) => {
+        recoDiv.addEventListener("click", (e) => {
             e.stopPropagation();
         })
 
@@ -39,6 +42,19 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             let d = await r.json();
             console.log(d.msg);
+            if (d.msg.includes("does")) {
+                finalForm1.style.display = "none";
+                finalForm2.style.display = "none";
+            }
+
+            if (d.msg.includes("already")) {
+                finalForm1.style.display = "flex";
+                finalForm2.style.display = "none";
+            }
+            else {
+                finalForm1.style.display = "none";
+                finalForm2.style.display = "block";
+            }
             reco.innerHTML = d.msg;
             recoCont.style.display = "flex";
         });

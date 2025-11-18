@@ -63,7 +63,17 @@
                 </ul>
             </div>
             <div class="recoCont">
-                <div class="reco">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam, velit sapiente adipisci quae atque hic officiis voluptate, quasi, asperiores similique recusandae illum expedita exercitationem iste nesciunt consectetur tempore earum unde.</div>
+                <div class="recoDiv">
+                    <div class="reco">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam, velit sapiente adipisci quae atque hic officiis voluptate, quasi, asperiores similique recusandae illum expedita exercitationem iste nesciunt consectetur tempore earum unde.</div>
+                    <form id="finalForm1" action="#">
+                        <input name="meal" type="hidden">
+                        <button type="submit">Ok</button>
+                    </form>
+                    <form id="finalForm2" action="#">
+                        <input type="text" placeholder="Choose meal..." autofocus>
+                        <button type="submit">Done</button>
+                    </form>
+                </div>
                 <img src="{{ url_for('static', filename='images/steve_tray2.png') }}" alt="steve">
             </div>
         </main>

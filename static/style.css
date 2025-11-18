@@ -36,14 +36,9 @@
 main {
     width: fit-content;
     margin: auto;
-    margin-top: 15px;
-    width: fit-content;
+    width: 450px;
     line-height: 1.35;
-}
-@media(min-width: 850px) {
-    main {
-        width: 850px;
-    }
+    padding: 10px;
 }
 .section-3 {
     margin-top: 30px;
@@ -98,10 +93,7 @@ footer img:hover {
     background-color: black;
 }
 /* index page css */
-.index {
-    margin-left: 3px;
-    margin-right: 3px;
-}
+
 .indexH {
     display: flex;
     align-items: center;
@@ -194,13 +186,14 @@ footer img:hover {
 .main {
     display: flex;
     justify-content: center;
-    gap: 5px;
 }
 #cleanForm {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    margin-bottom: 25px;
+    margin-right: 15px;
 }
 #cleanForm textarea {
     resize: none;
@@ -243,16 +236,13 @@ footer img:hover {
     background-color: lightblue;
     padding-top: 10px;
     padding-right: 10px;
-    margin-top: 5px;
-    margin-bottom: 15px;
+    margin: auto;
+    margin-bottom: 20px;
 }
-/* .main {
-    display: none;
-} */
 .main img {
-    width: 200px;
-    height: 200px;
-    align-self: flex-start;
+    width: 150px;
+    height: 150px;
+    align-self: flex-end;
 }
 .query2 {
     background-color: lightblue;
@@ -308,23 +298,15 @@ footer img:hover {
     background-color: rgb(243, 106, 106);
 }
 .instruct {
-    margin-top: 10px;
     width: 400px;
     margin: auto;
-    transform: translateX(-10%);
-}
-@media (min-width: 850px) {
-    .instruct {
-        width: fit-content;
-        transform: translateX(-30%);
-    }
 }
 .ingredients {
     margin-top: 5px;
     margin-bottom: 30px;
 }
 .index footer {
-    margin-top: 250px;
+    margin-top: 20rem;
 }
 .recoCont {
     position: fixed;
@@ -333,10 +315,21 @@ footer img:hover {
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.842);
-    padding-top: 300px;
-    display: flex;
+    padding-top: 10rem;
     justify-content: center;
     display: none;
+}
+.recoCont .recoDiv {
+    width: 50%;
+    height: 350px;
+    margin-right: -130px;
+    margin-left: 5px;
+    background-color: lightgreen;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 .recoCont img {
     width: 400px;
@@ -344,11 +337,46 @@ footer img:hover {
     align-self: flex-end;
 }
 .reco {
-    width: 50%;
-    height: 300px;
-    background-color: lightgreen;
-    margin-right: -100px;
+    padding-left: 15px;
+}
+.recoDiv button {
+    padding: 15px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border: none;
+    outline: none;
+    background-color: lightseagreen;
+    color: white;
     border-radius: 20px;
+    cursor: pointer;
+    display: block;
+}
+.recoDiv #finalForm1 {
+    align-self: flex-end;
+    display: none;
+}
+.recoDiv #finalForm2 {
+    align-self: flex-start;
+}
+.recoDiv #finalForm2 button {
+    margin-top: 10px;
+}
+.recoDiv #finalForm2 input {
     padding: 10px;
-    margin-left: 5px;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+}
+@media (min-width: 850px) {
+    main {
+        width: 850px;
+    }
+    .instruct {
+        width: fit-content;
+        transform: translateX(-30%);
+    }
+    .main img {
+        width: 200px;
+        height: 200px;
+    }
 }
